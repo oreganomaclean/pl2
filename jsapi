@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>ArcGIS API for JavaScript Tutorials: Display a map</title>
+    <title>Regan MacLean's ArcGIS API for JavaScript Tutorials: Display a map</title>
 
     <style>
       html,
@@ -21,9 +21,21 @@
       <script>
       require(["esri/config","esri/Map", "esri/views/MapView"], function (esriConfig,Map, MapView) {
 
+  esriConfig.apiKey = "AAPK4338950371764d9d96936ef6f2c2fc19MgWj7LtzTbkRplpCd4lD2EKh9Kn42lf2EMRalCmPO4ME9Bl8G-nH8JRtrzB0Sims";
+
+        const map = new Map({
+          basemap: "arcgis-topographic" // Basemap layer service
+        });
       });
     </script>
     
+     const view = new MapView({
+          map: map,
+          center: [-118.805, 34.027], // Longitude, latitude
+          zoom: 13, // Zoom level
+          container: "viewDiv" // Div element
+        });
+        
   </head>
   <body>
     <div id="viewDiv"></div>
