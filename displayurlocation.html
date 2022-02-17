@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>Regan MacLean's ArcGIS API for JavaScript Tutorials: Display a map</title>
-<!-- This allows the map to be 100% of the screen --> 
+    <title>ArcGIS API for JavaScript Tutorials: Display your location</title>
+
     <style>
       html,
       body,
@@ -15,27 +14,43 @@
         width: 100%;
       }
     </style>
-    
-<!-- This links the CSS style sheet and the JS file to this HTML page --> 
-    
-<link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css">
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css">
     <script src="https://js.arcgis.com/4.22/"></script>
-    
-      <script>
-      require(["esri/config","esri/Map", "esri/views/MapView"], function (esriConfig,Map, MapView) {
-// The API Key was found at the ArcGIS Developer Dashboard / Developers
-        
-  esriConfig.apiKey = "AAPK84856aca8f2b4264b7f7e79981a8482259h6_-gklAB038GjhZcainpbBWthzsDCBYZTMpsv2w8zqiH2aejLwlzohAU3DQuK";
-// The Basemap for the simple map style
+
+
+    <script>
+      require([
+          "esri/config",
+          "esri/Map",
+          "esri/views/MapView",
+          "esri/widgets/Locate",
+
+          "esri/widgets/Track",
+          "esri/Graphic"
+
+        ], function(
+            esriConfig,
+            Map,
+            MapView,
+            Locate,
+
+            Track,
+            Graphic
+
+        ) {
+
+        esriConfig.apiKey = "AAPK84856aca8f2b4264b7f7e79981a8482259h6_-gklAB038GjhZcainpbBWthzsDCBYZTMpsv2w8zqiH2aejLwlzohAU3DQuK";
+
         const map = new Map({
-          basemap: "arcgis-topographic"
-        }); 
-        
+          basemap: "arcgis-navigation"
+        });
+
         const view = new MapView({
+          container: "viewDiv",
           map: map,
-          center: [-118.805, 34.027], // Longitude, latitude
-          zoom: 13, // Zoom level
-          container: "viewDiv" // Div element
+          center: [-40, 28],
+          zoom: 2
         });
       });
     </script>
