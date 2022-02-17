@@ -23,23 +23,25 @@
     
       <script>
       require(["esri/config","esri/Map", "esri/views/MapView"], function (esriConfig,Map, MapView) {
-// The API Key was found at the ArcGIS Developer Dashborad / Developers
+// The API Key was found at the ArcGIS Developer Dashboard / Developers
         
   esriConfig.apiKey = "AAPK4338950371764d9d96936ef6f2c2fc19MgWj7LtzTbkRplpCd4lD2EKh9Kn42lf2EMRalCmPO4ME9Bl8G-nH8JRtrzB0Sims";
 // The Basemap for the simple map style
         const map = new Map({
-          basemap: "arcgis-topographic" // Basemap layer service
-        });
-      });
-    </script>
-
-   
-     const view = new MapView({
+          basemap: "arcgis-topographic"
+        }); 
+        
+        const view = new MapView({
           map: map,
           center: [-118.805, 34.027], // Longitude, latitude
           zoom: 13, // Zoom level
           container: "viewDiv" // Div element
         });
+      });
+    </script>
+
+   
+  
         
   </head>
   <body>
